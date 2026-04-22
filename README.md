@@ -6,7 +6,7 @@ A framework for building user interface applications
 - ```
   sudo apt install -y libsdl2-dev libsdl2-2.0-0 libsdl2-image-dev libsdl2-ttf-dev libsdl2-mixer-dev
   ```
-- change CMakeLists.txt
+- 2, change CMakeLists.txt
 - ```
   if(ENABLE_SDL2)
   	find_package(SDL2 QUIET)
