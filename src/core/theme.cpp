@@ -1217,7 +1217,10 @@ BorderImageRenderer::TileRepeatInfo BorderImageRenderer::repeat_info(float x, fl
 	return info;
 }
 
-void BorderImageRenderer::draw_area(const std::shared_ptr<Image>& image, float x, float y, float w, float h, int sx, int sy, int sw, int sh, BorderImageRepeat repeat_x, BorderImageRepeat repeat_y)
+void BorderImageRenderer::draw_area(const std::shared_ptr<Image>& image, float x, float y, float w, float h,
+                                    int sx, int sy, int sw, int sh,
+                                    BorderImageRepeat repeat_x,
+                                    BorderImageRepeat repeat_y)
 {
 	TileRepeatInfo tile_x = repeat_info(x, w, sw, repeat_x);
 	TileRepeatInfo tile_y = repeat_info(y, h, sh, repeat_y);

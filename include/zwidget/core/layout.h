@@ -9,7 +9,7 @@ class Layout;
 // Only Layout classes can create them.
 class Stretch : public Widget
 {
-	Stretch();
+    Stretch(Widget* parent = nullptr);
 	friend class Layout;
 };
 

@@ -1,6 +1,6 @@
 #include "zwidget/core/layout.h"
 
-Stretch::Stretch()
+Stretch::Stretch(Widget* parent):Widget(parent)
 {
 	SetStretching(true);
 }
@@ -36,7 +36,7 @@ void Layout::AddLayout(Layout* layout)
 
 void Layout::AddStretch()
 {
-	Widgets.push_back(new Stretch());
+    Widgets.push_back(new Stretch(ParentWidget));
 }
 
 Widget* Layout::Parent() const

@@ -521,8 +521,8 @@ void SDL2DisplayWindow::OnWindowEvent(const SDL_WindowEvent& event)
 		case SDL_WINDOWEVENT_LEAVE:
 		case SDL_WINDOWEVENT_TAKE_FOCUS:
 		case SDL_WINDOWEVENT_HIT_TEST:
-		case SDL_WINDOWEVENT_ICCPROF_CHANGED:
-		case SDL_WINDOWEVENT_DISPLAY_CHANGED:
+        //case SDL_WINDOWEVENT_ICCPROF_CHANGED:
+        //case SDL_WINDOWEVENT_DISPLAY_CHANGED:
 			// nope
 			break;
 	}
@@ -560,7 +560,7 @@ InputKey SDL2DisplayWindow::GetMouseButtonKey(const SDL_MouseButtonEvent& event)
 		case SDL_BUTTON_LEFT: return InputKey::LeftMouse;
 		case SDL_BUTTON_MIDDLE: return InputKey::MiddleMouse;
 		case SDL_BUTTON_RIGHT: return InputKey::RightMouse;
-		// case SDL_BUTTON_X1: return InputKey::XButton1;
+        // case SDL_BUTTON_X1: return InputKey::XButton1;
 		// case SDL_BUTTON_X2: return InputKey::XButton2;
 		default: return InputKey::None;
 	}

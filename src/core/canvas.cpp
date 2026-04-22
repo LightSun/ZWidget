@@ -167,7 +167,7 @@ CanvasGlyph* CanvasFontGroup::getGlyph(Canvas* canvas, uint32_t utfchar, const c
 	{
 		for (auto& fd : fonts)
 		{
-			if (i == 1 || lang == nullptr || *lang == 0 || fd.language.empty() || fd.language == lang)
+            if (i == 1 || lang == nullptr || *lang == 0 || fd.language.empty() || fd.language == lang)
 			{
 				auto g = fd.font->getGlyph(canvas, utfchar);
 				if (g) return g;
@@ -265,14 +265,18 @@ void Canvas::popClip()
 
 void Canvas::fillRect(const Rect& box, const Colorf& color)
 {
-	fillTile(gridFit(origin.x + box.x), gridFit(origin.y + box.y), gridFit(box.width), gridFit(box.height), color);
+    fillTile(gridFit(origin.x + box.x),
+             gridFit(origin.y + box.y),
+             gridFit(box.width),
+             gridFit(box.height), color);
 }
 
 void Canvas::drawImage(const std::shared_ptr<Image>& image, const Point& pos)
 {
 	auto& texture = imageTextures[image];
 	if (!texture)
-		texture = createTexture(image->GetWidth(), image->GetHeight(), image->GetData(), image->GetFormat());
+        texture = createTexture(image->GetWidth(), image->GetHeight(),
+                                image->GetData(), image->GetFormat());
 
 	Colorf color(1.0f, 1.0f, 1.0f, 1.0f);
 	drawTile(texture.get(), gridFit(origin.x + pos.x), gridFit(origin.y + pos.y), gridFit(texture->Width), gridFit(texture->Height), 0.0, 0.0, (float)texture->Width, (float)texture->Height, color);
@@ -405,7 +409,10 @@ void Canvas::drawText(const std::shared_ptr<Font>& font, const Point& pos, const
 		{
 			double gx = std::round(x + glyph->metrics.leftSideBearing);
 			double gy = std::round(y + glyph->metrics.yOffset);
-			drawGlyph(glyph->texture.get(), (float)gx, (float)gy, (float)glyph->uvwidth, (float)glyph->uvheight, (float)glyph->u, (float)glyph->v, (float)glyph->uvwidth, (float)glyph->uvheight, color);
+            drawGlyph(glyph->texture.get(), (float)gx, (float)gy,
+                      (float)glyph->uvwidth, (float)glyph->uvheight,
+                      (float)glyph->u, (float)glyph->v,
+                      (float)glyph->uvwidth, (float)glyph->uvheight, color);
 		}
 
 		x += std::round(glyph->metrics.advanceWidth);
@@ -802,7 +809,9 @@ void BitmapCanvas::fillTile(float left, float top, float width, float height, Co
 
 #if 1 // drawTile linear filtered
 
-void BitmapCanvas::drawTile(CanvasTexture* tex, float left, float top, float width, float height, float u, float v, float uvwidth, float uvheight, Colorf color)
+void BitmapCanvas::drawTile(CanvasTexture* tex, float left, float top, float width, float height,
+                            float u, float v, float uvwidth, float uvheight,
+                            Colorf color)
 {
 	if (width <= 0.0f || height <= 0.0f || color.a <= 0.0f)
 		return;

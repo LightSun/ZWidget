@@ -5,6 +5,7 @@
 #include <functional>
 #include <cstdint>
 #include <cstdlib>
+#include <vector>
 #include "../core/rect.h"
 
 #ifndef VULKAN_H_

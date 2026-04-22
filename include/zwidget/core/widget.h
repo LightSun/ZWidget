@@ -25,7 +25,7 @@ enum class WidgetEvent
 	// TODO: add more events
 };
 
-class Widget : DisplayWindowHost
+class Widget : public DisplayWindowHost
 {
 public:
 	Widget(Widget* parent = nullptr, WidgetType type = WidgetType::Child, RenderAPI api = RenderAPI::Unspecified);

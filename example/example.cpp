@@ -412,7 +412,9 @@ int example(Backend backend = Backend::Default, Theme theme = Theme::Default)
 	}
 
 	auto launcher = new LauncherWindow();
-	launcher->SetFrameGeometry((Widget::GetScreenSize().width - 615.0) * 0.5, (Widget::GetScreenSize().height - 668.0) * 0.5, 615.0, 668.0);
+    launcher->SetFrameGeometry((Widget::GetScreenSize().width - 615.0) * 0.5,
+                               (Widget::GetScreenSize().height - 668.0) * 0.5,
+                               615.0, 668.0);
 	launcher->Show();
 
 	DisplayWindow::RunLoop();

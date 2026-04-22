@@ -723,7 +723,7 @@ Point Widget::MapFrom(const Widget* parent, const Point& pos) const
 			return p;
 		p -= cur->ContentGeometry.topLeft();
 	}
-	throw std::runtime_error("MapFrom: not a parent of widget");
+    throw std::runtime_error("MapFrom: not a parent of this widget");
 }
 
 Point Widget::MapFromGlobal(const Point& pos) const
